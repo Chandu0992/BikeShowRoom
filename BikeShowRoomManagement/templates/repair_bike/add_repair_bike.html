@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Repair Bike</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.repair_bike_type option[value={{ res.repair_bike_type }}]').attr('selected','selected');
+    });
+    </script>
+</head>
+<body>
+    <div align="center">
+        <h3>Add Repair Bike</h3>
+    </div>
+
+    <div align="center">
+        <form action="{% url 'add_repair_bike' %}" method="post">
+            {% csrf_token %}
+            <table border="0">
+                <tr>
+                    <td>Repair Bike Id :</td>
+                    <td><input type="text" name="repair_bike_id" value="{{ res.repair_bike_id }}" placeholder="Repair Bike Id" required></td>
+                </tr>
+
+                <tr>
+                    <td>Repair Bike Customer Id :</td>
+                    <td><input type="text" name="repair_bike_customer_id" value='{{ res.repair_bike_customer_id }}' placeholder="Repair Bike Customer Id" required></td>
+                </tr>
+
+                 <tr>
+                    <td>Repair Bike Number :</td>
+                    <td><input type="text" name="repair_bike_number" value='{{ res.repair_bike_number }}' placeholder="Repair Bike Number" required></td>
+                </tr>
+
+                 <tr>
+                    <td>Repair Bike Bill :</td>
+                    <td><input type="text" name="repair_bike_bill" value='{{ res.repair_bike_bill }}' placeholder="Repair Bike Bill Number" required></td>
+                </tr>
+
+                <tr>
+                    <td>Repair Bike Type :</td>
+                    <td>
+                        <select name="repair_bike_type" class="repair_bike_type">
+                            <option>Select</option>
+                            <option value="Repair_Bike_Type1">Repair_Bike_Type1</option>
+                            <option value="Repair_Bike_Type2">Repair_Bike_Type2</option>
+                            <option value="Repair_Bike_Type3">Repair_Bike_Type3</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Repair Bike Description :</td>
+                    <td><textarea name="repair_bike_description" cols="25" rows="6" placeholder="Enter Bike Description">{{ res.repair_bike_description }}</textarea></td>
+                </tr>
+                <tr align="center">
+                    <td colspan='2'><input type="submit" value="Add Repair Bike" class="btn btn-primary"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

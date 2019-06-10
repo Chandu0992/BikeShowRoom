@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Insurance</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div align="center">
+            <table border="1">
+                <tr>
+                    <td colspan="3"><h3>Insurance Details</h3></td>
+                </tr>
+              {% for rec in my_rec %}
+                <tr>
+                    <td>
+                        <form action="{% url 'edit_insurance' %}" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="insurance_id" value="{{ rec.insurance_id }}">{{ rec.insurance_id }}
+                            <input type="submit" value="Update">
+                        </form>
+                    </td>
+
+                    <td>
+                        <form action="{% url 'del_insurance' %}" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="insurance_id" value="{{ rec.insurance_id }}">
+                            <input type="submit" value="Delete">
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+           </table>
+        {% if msg %}
+            <div> {{ msg }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>

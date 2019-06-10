@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bike ShowRoom</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Bike
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a class="btn btn-warning" href="{% url 'show_add_bike' %}">Add Bike</a></li>
+      <li><a class="btn btn-warning" href="{% url 'show_bike' %}">Edit Bike</a></li>
+      <li><a class="btn btn-warning" href="{% url 'show_search_bike' %}">Search Bike</a></li>
+    </ul>
+  </div>
+
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Booking
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a class="btn btn-warning" href="{% url 'show_add_booking' %}">Add Booking</a></li>
+      <li><a class="btn btn-warning" href="{% url 'show_booking' %}">Edit Booking</a></li>
+      <li><a class="btn btn-warning" href="{% url 'show_search_booking' %}">Search Booking</a></li>
+    </ul>
+  </div>
+
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Repair Bike
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a class="btn btn-warning" href="{% url 'show_add_repair_bike' %}">Add Repair Bike</a></li>
+      <li><a class="btn btn-warning" href="{% url 'show_repair_bike' %}">Edit Repair Bike</a></li>
+      <li><a class="btn btn-warning" href="{% url 'show_search_repair_bike' %}">Search Repair Bike</a></li>
+    </ul>
+  </div>
+
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Insurance
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a class="btn btn-warning" href="{% url 'show_add_insurance' %}">Add Insurance</a></li>
+      <li><a class="btn btn-warning" href="{% url 'show_insurance' %}">Edit Insurance</a></li>
+      <li><a class="btn btn-warning" href="{% url 'show_search_insurance' %}">Search Insurance</a></li>
+    </ul>
+  </div>
+
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Customer
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a class="btn btn-warning" href="{% url 'show_add_customer' %}">Add Customer</a></li>
+      <li><a class="btn btn-warning" href="{% url 'show_customer' %}">Edit Customer</a></li>
+      <li><a class="btn btn-warning" href="{% url 'show_search_customer' %}">Search Customer</a></li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Booking</title>
+</head>
+<body>
+    <form action="{% url 'search_repair_bike' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="repair_bike_id" placeholder="Enter Repair Bike Id" required>
+        <input type="submit" value="Search Booking">
+    </form>
+
+    {% if res %}
+        <div>
+            <table border="1">
+                <thead>Repair Bike Details</thead>
+                <tr>
+                    <td>Repair Bike Id : </td>
+                    <td>{{ res.repair_bike_id }}</td>
+                </tr>
+
+                <tr>
+                    <td>Repair Bike Customer Id : </td>
+                    <td>{{ res.repair_bike_customer_id }}</td>
+                </tr>
+
+                <tr>
+                    <td>Repair Bike Number :</td>
+                    <td>{{ res.repair_bike_number }}</td>
+                </tr>
+
+                <tr>
+                    <td>Repair Bike Bill Number :</td>
+                    <td>{{ res.repair_bike_bill }}</td>
+                </tr>
+
+                <tr>
+                    <td>Repair Bike Type :</td>
+                    <td>{{ res.repair_bike_type }}</td>
+                </tr>
+
+                <tr>
+                    <td>Repair Bike Description : </td>
+                    <td>{{  res.repair_bike_description }}</td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    {% endif %}
+</body>
+</html>

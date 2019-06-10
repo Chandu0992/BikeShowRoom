@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Bike</title>
+</head>
+<body>
+    <form action="{% url 'search_bike' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="bike_id" placeholder="Enter Bike Id" required>
+        <input type="submit" value="Search Bike">
+    </form>
+
+    {% if res %}
+        <div>
+            <table border="1">
+                <thead>Bike Details</thead>
+                <tr>
+                    <td>Bike Id : </td>
+                    <td>{{ res.bike_id }}</td>
+                </tr>
+
+                <tr>
+                    <td>Bike Customer : </td>
+                    <td>{{ res.bike_customer }}</td>
+                </tr>
+
+                <tr>
+                    <td>Bike Number : </td>
+                    <td>{{ res.bike_number }}</td>
+                </tr>
+
+                 <tr>
+                    <td>Bike Company : </td>
+                    <td>{{ res.bike_company }}</td>
+                </tr>
+
+                <tr>
+                    <td>Bike Type :</td>
+                    <td>{{ res.bike_type }}</td>
+                </tr>
+
+                <tr>
+                    <td>Bike Description : </td>
+                    <td>{{  res.bike_description }}</td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    {% endif %}
+</body>
+</html>

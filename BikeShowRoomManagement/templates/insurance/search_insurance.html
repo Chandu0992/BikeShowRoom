@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Insurance</title>
+</head>
+<body>
+    <form action="{% url 'search_insurance' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="insurance_id" placeholder="Enter Insurance Id" required>
+        <input type="submit" value="Search Booking">
+    </form>
+
+    {% if res %}
+        <div>
+            <table border="1">
+                <thead>Insurance Details</thead>
+                <tr>
+                    <td>Insurance Id : </td>
+                    <td>{{ res.insurance_id }}</td>
+                </tr>
+
+                <tr>
+                    <td>Insurance Bike Id : </td>
+                    <td>{{ res.insurance_bike_id }}</td>
+                </tr>
+
+                <tr>
+                    <td>Insurance Number :</td>
+                    <td>{{ res.insurance_number }}</td>
+                </tr>
+
+                <tr>
+                    <td>Insurance Date :</td>
+                    <td>{{ res.insurance_date }}</td>
+                </tr>
+
+                <tr>
+                    <td>Insurance Expiry :</td>
+                    <td>{{ res.insurance_expiry }}</td>
+                </tr>
+
+                <tr>
+                    <td>Insurance Amount :</td>
+                    <td>{{ res.insurance_amount }}</td>
+                </tr>
+
+                <tr>
+                    <td>Insurance Type :</td>
+                    <td>{{ res.insurance_type }}</td>
+                </tr>
+
+                <tr>
+                    <td>Insurance Description : </td>
+                    <td>{{  res.insurance_description }}</td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Booking</title>
+</head>
+<body>
+    <form action="{% url 'search_booking' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="booking_id" placeholder="Enter Booking Id" required>
+        <input type="submit" value="Search Booking">
+    </form>
+
+    {% if res %}
+        <div>
+            <table border="1">
+                <thead>Booking Details</thead>
+                <tr>
+                    <td>Booking Id : </td>
+                    <td>{{ res.booking_id }}</td>
+                </tr>
+
+                <tr>
+                    <td>Booking Title : </td>
+                    <td>{{ res.booking_title }}</td>
+                </tr>
+
+                <tr>
+                    <td>Booking Type :</td>
+                    <td>{{ res.booking_type}}</td>
+                </tr>
+
+                <tr>
+                    <td>Booking Date :</td>
+                    <td>{{ res.booking_date }}</td>
+                </tr>
+
+                <tr>
+                    <td>Booking Description : </td>
+                    <td>{{  res.booking_description }}</td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    {% endif %}
+</body>
+</html>

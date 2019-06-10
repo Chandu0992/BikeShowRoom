@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Customer</title>
+</head>
+<body>
+    <form action="{% url 'search_customer' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="customer_id" placeholder="Enter Customer Id" required>
+        <input type="submit" value="Search Customer">
+    </form>
+    {% if res %}
+        <div>
+            <table border="1">
+                <thead>Customer Details</thead>
+                <tr>
+                    <td>Customer Id : </td>
+                    <td>{{ res.customer_id }}</td>
+                </tr>
+
+                <tr>
+                    <td>Customer Name : </td>
+                    <td>{{ res.customer_name }}</td>
+                </tr>
+
+                <tr>
+                    <td>Customer Mobile Number :</td>
+                    <td>{{ res.customer_mobile }}</td>
+                </tr>
+
+                <tr>
+                    <td>Customer Email :</td>
+                    <td>{{ res.customer_email }}</td>
+                </tr>
+
+                <tr>
+                    <td>Customer User Name :</td>
+                    <td>{{ res.customer_username }}</td>
+                </tr>
+
+                <tr>
+                    <td>Customer Address : </td>
+                    <td>{{  res.customer_address }}</td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    {% endif %}
+</body>
+</html>
